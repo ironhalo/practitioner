@@ -17,7 +17,7 @@ class system::dbadmins {
       default => 600,
     }
 
-    mysql_user { "{$u}@localhost":
+    mysql_user { "${u}@localhost":
       ensure               => present,
       max_queries_per_hour => $mqph,
     }
