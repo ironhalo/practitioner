@@ -1,9 +1,9 @@
 class hosts {
 
-#  resources { 'host':
-#    purge => 'true',
-#  }
-#
+  resources { 'host':
+    purge => 'true',
+  }
+
   host { 'localhost':
     ensure       => 'present',
     host_aliases => ['localhost.localdomain', 'localhost6', 'localhost6.localdomain6'],
