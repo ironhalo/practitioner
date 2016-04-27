@@ -23,12 +23,13 @@ class hosts {
     target       => '/etc/hosts',
     tag          => 'classroom',
   }
-#  host { 'student.puppetlabs.vm':
-#    ensure       => 'present',
-#    host_aliases => ['training', 'localhost', 'localhost.localdomain', 'localhost4'],
-#    ip           => '127.0.0.1',
-#    target       => '/etc/hosts',
-#  }
+  @@host { 'student.puppetlabs.vm':
+    ensure       => 'present',
+    host_aliases => ['training', 'localhost', 'localhost.localdomain', 'localhost4'],
+    ip           => '127.0.0.1',
+    target       => '/etc/hosts',
+    tag          => 'classroom',
+  }
 
 #  @@host { $::fqdn:
 #    ip           => $::ipaddress,
