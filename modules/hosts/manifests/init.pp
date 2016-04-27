@@ -18,10 +18,10 @@ class hosts {
     target       => '/etc/hosts',
   }
 
-  @@host { 'paul.puppetlabs.vm':
+  @@host { $::fqdn:
     ensure       => 'present',
-    host_aliases => ['paul'],
-    ip           => '172.16.68.130',
+    host_aliases => [ $::hostname ],
+    ip           => $::ipaddress,
     target       => '/etc/hosts',
     tag          => 'classroom',
   }
@@ -31,7 +31,6 @@ class hosts {
     host_aliases => ['training', 'localhost', 'localhost.localdomain', 'localhost4'],
     ip           => '127.0.0.1',
     target       => '/etc/hosts',
-    tag          => 'classroom',
   }
 
   Host <<| tag == 'classroom' |>>
