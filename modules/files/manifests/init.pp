@@ -27,8 +27,14 @@ class files {
 
   concat::fragment { 'motd_header':
     target  => $motd,
-    content => "Welcome to ${::fqdn}",
     order   => '01',
+    content => template('files/motd.erb'),
+  }
+
+  concat::fragment { 'motd_message':
+    target  => $motd,
+    content => "Your IP is ${::ipaddress}\n",
+    order   => '02',
   }
 
 }
