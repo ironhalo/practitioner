@@ -21,6 +21,7 @@ class hosts {
     host_aliases => ['paul'],
     ip           => '172.16.68.130',
     target       => '/etc/hosts',
+    tag          => 'classroom',
   }
 #  host { 'student.puppetlabs.vm':
 #    ensure       => 'present',
@@ -35,6 +36,6 @@ class hosts {
 #    tag          => 'classroom',
 #  }
 
-  Host <<| tag==classroom |>>
+  Host <<| tag == 'classroom' |>>
 
 }
